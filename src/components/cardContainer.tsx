@@ -1,8 +1,13 @@
 import { CardComponent } from "./cardComponent"
 
-export function CardContainer(){
+interface CardContainerProps{
+    setLikedCount: React.Dispatch<React.SetStateAction<number>>
+    queryString: string
+}
+
+export function CardContainer(props:CardContainerProps){
     return  (
-        <CardComponent />
+        <CardComponent setLikedCount={props.setLikedCount} queryString={props.queryString}/>
 
 )
 }
