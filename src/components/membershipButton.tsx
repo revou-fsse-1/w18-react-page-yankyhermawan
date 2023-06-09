@@ -1,8 +1,22 @@
 import { useState } from "react";
 import { MembershipForm } from "./membershipForm";
+import { FormSuccess } from "./formSuccess";
 
 export function MembershipButton() {
   const [isElementVisible, setElementVisible] = useState<boolean>(false);
+
+  const [formFields, setFormFields] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+});
+
+const [formErrors, setFormErrors] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    status:""
+});
 
   const handleButtonClick = () => {
     setElementVisible(!isElementVisible);
@@ -18,7 +32,8 @@ export function MembershipButton() {
           Join Photo Club Membership
         </button>
       </div>
-      {isElementVisible && <MembershipForm isElementVisible={isElementVisible} setElementVisible={setElementVisible} />}
+      {isElementVisible && <MembershipForm isElementVisible={isElementVisible} setElementVisible={setElementVisible} formFields={formFields} setFormFields={setFormFields} formErrors={formErrors} setFormErrors={setFormErrors}/>}
+      <FormSuccess formErrors={formErrors}/>
     </>
   );
 }

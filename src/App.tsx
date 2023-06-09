@@ -7,7 +7,7 @@ function App() {
     const [likedCount, setLikedCount] = useState(0);
     const [queryString, setQueryString] = useState("")
 return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center">
         <HeaderContainer likedCount={likedCount} setQueryString={setQueryString} queryString={queryString}/>
         <CardContainer setLikedCount={setLikedCount} queryString={queryString}/>
         <MembershipContainer/>
